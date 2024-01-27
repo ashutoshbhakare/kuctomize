@@ -3,11 +3,12 @@ kind: Kustomization
 namePrefix: prod-
 commonLabels:
  variant: products
-bases:
+resources:
+#bases:
 - ../../base
 patches:
-- replicas.yaml
-- nodeport.yaml
+- path: ./replicas.yaml
+- path: ./nodeport.yaml
 images:
  - name: nginx
    newTag: 1.9.0
